@@ -32,3 +32,23 @@ void APlayerCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 
 }
 
+void APlayerCharacter::InitializeCharacter()
+{
+	if(InputModifierTable)
+	{
+		for(FName RowName : InputModifierTable->GetRowNames())
+		{
+			FSpellDataStruct* Row = InputModifierTable->FindRow<FSpellDataStruct>(RowName, TEXT(""));
+			if(Row)
+			{
+				ModifierArray.Add(*Row);
+			}
+		}
+	}
+}
+
+TArray<FSpellDataStruct> APlayerCharacter::GetPlayerModifierArray() const
+{
+	return ModifierArray;
+}
+

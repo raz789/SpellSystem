@@ -28,8 +28,13 @@ class APlayerCharacter : public APawn
 		// Called to bind functionality to input
 		virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
+		UFUNCTION(BlueprintCallable, Category="Initialize Data")
+		void InitializeCharacter();
+
+		UFUNCTION(BlueprintPure, Category="Player Data")
+		TArray<FSpellDataStruct> GetPlayerModifierArray() const;
+
 	private:
-		UPROPERTY(EditDefaultsOnly, Category = "Player Data")
 		TArray<FSpellDataStruct> ModifierArray;
 
 		UPROPERTY(EditDefaultsOnly, Category = "Player Data")
