@@ -3,6 +3,7 @@
 #pragma once
 
 #include "PlayerStructs.h"
+#include "LeftModifierUI.h"
 #include "CoreMinimal.h"
 #include "Blueprint/UserWidget.h"
 #include "PlayerUI.generated.h"
@@ -24,5 +25,5 @@ class UPlayerUI : public UUserWidget
 	
 	private:
 		TArray<FSpellDataStruct> ModifierArray;
-	
+		ULeftModifierUI* LeftModifierUIRef;
 };

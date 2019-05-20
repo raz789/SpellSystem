@@ -18,7 +18,7 @@ struct FSpellDataStruct : public FTableRowBase
     UPROPERTY(EditDefaultsOnly, BlueprintReadWrite, Category = "Icon")
     UTexture2D* IconRef;
 
-    FSpellDataStruct::FSpellDataStruct()
+    FSpellDataStruct()
     {
         SpellName = "";
         Level = 0;
