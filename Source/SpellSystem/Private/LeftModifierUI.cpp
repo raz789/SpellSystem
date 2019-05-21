@@ -21,3 +21,13 @@ TArray<USpellNode*> ULeftModifierUI::GetModifierSpellNodes() const
     return ModifierSpellNodes;
 }
 
+FVector2D ULeftModifierUI::GetUIDefaultPosition() const
+{
+    return UIDefaultPosition;
+}
+
+void ULeftModifierUI::SetUIDefaultPosition(float x, float y)
+{
+    UIDefaultPosition.X = x;
+    UIDefaultPosition.Y = y;
+}

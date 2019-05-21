@@ -22,6 +22,12 @@ class ULeftModifierUI : public UUserWidget
 
 		UFUNCTION(BlueprintCallable, Category="Update UI")
 		TArray<USpellNode*> GetModifierSpellNodes() const;
+
+		UFUNCTION(BlueprintPure, Category="UI Location")
+		FVector2D GetUIDefaultPosition() const;
+	
+		UFUNCTION(BlueprintCallable, Category="UI Location")
+		void SetUIDefaultPosition(float x, float y);
 		
 	private:
 		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")
@@ -29,5 +35,8 @@ class ULeftModifierUI : public UUserWidget
 
 		UPROPERTY(EditDefaultsOnly, Category = "Node Image")
 		TSubclassOf<UUserWidget> SpellNodeClass;
+
+		UPROPERTY(EditAnywhere, Category = "UI Location")
+		FVector2D UIDefaultPosition;
 	
 };

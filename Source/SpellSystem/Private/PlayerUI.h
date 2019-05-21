@@ -22,8 +22,17 @@ class UPlayerUI : public UUserWidget
 
 		UFUNCTION(BlueprintPure, Category="Character Data")
 		TArray<FSpellDataStruct> GetModifierArray() const;
+
+		UFUNCTION(BlueprintCallable, Category="UI References")
+		void SetLeftModifierUIRef(ULeftModifierUI* UIRef);
+
+		UFUNCTION(BlueprintPure, Category="Character Data")
+		ULeftModifierUI* GetLeftModifierUIRef() const;
 	
 	private:
 		TArray<FSpellDataStruct> ModifierArray;
 		ULeftModifierUI* LeftModifierUIRef;
+
+		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")
+		TArray<USpellNode*> ModifierSpellNodes;
 };
