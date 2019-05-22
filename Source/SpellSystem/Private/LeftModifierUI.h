@@ -6,6 +6,7 @@
 #include "Blueprint/UserWidget.h"
 #include "PlayerStructs.h"
 #include "SpellNode.h"
+#include "UnrealMathUtility.h"
 #include "LeftModifierUI.generated.h"
 
 /**
@@ -28,6 +29,9 @@ class ULeftModifierUI : public UUserWidget
 	
 		UFUNCTION(BlueprintCallable, Category="UI Location")
 		void SetUIDefaultPosition(float x, float y);
+
+		UFUNCTION(BlueprintCallable, Category="UI Location")
+		FVector2D CalculateDirectionalVector(FVector2D initialPosition, float distance, float direction);
 		
 	private:
 		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")

@@ -31,3 +31,16 @@ void ULeftModifierUI::SetUIDefaultPosition(float x, float y)
     UIDefaultPosition.X = x;
     UIDefaultPosition.Y = y;
 }
+
+FVector2D ULeftModifierUI::CalculateDirectionalVector(FVector2D initialPosition, float distance, float direction)
+{
+    //Parametric Equation of the Circle
+
+    float radius = distance;
+    float radians = direction;
+
+    float x = (radius) * FMath::Cos(radians);
+    float y = (radius) * FMath::Sin(radians);
+
+    return initialPosition + FVector2D(x, y);
+}
