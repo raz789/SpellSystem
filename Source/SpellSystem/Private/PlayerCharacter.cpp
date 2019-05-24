@@ -52,3 +52,12 @@ TArray<FSpellDataStruct> APlayerCharacter::GetPlayerModifierArray() const
 	return ModifierArray;
 }
 
+int APlayerCharacter::GetCurrentModifierSelection() const
+{
+	return CurrentModifierSelection;
+}
+
+void APlayerCharacter::SetCurrentModifierSelection(int selection)
+{
+	CurrentModifierSelection = selection;
+}

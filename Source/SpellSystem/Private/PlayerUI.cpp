@@ -2,23 +2,15 @@
 
 #include "PlayerUI.h"
 
-void UPlayerUI::SetModifierArray(TArray<FSpellDataStruct> Array)
-{
-    ModifierArray = Array;
-}
+ void UPlayerUI::NativeConstruct()
+ {
+     Super::NativeConstruct();
+ 
+     // Bind delegates here.
+ }
 
-TArray<FSpellDataStruct> UPlayerUI::GetModifierArray() const
+void UPlayerUI::AddCanvasPanelToWidgetTree(UCanvasPanel* panel)
 {
-    return ModifierArray;
+    WidgetTree->RootWidget = panel;
+    UE_LOG(LogTemp, Warning, TEXT("////////////////////////////"));
 }
-
-void UPlayerUI::SetLeftModifierUIRef(ULeftModifierUI* UIRef)
-{
-    LeftModifierUIRef = UIRef;
-}
-
-ULeftModifierUI* UPlayerUI::GetLeftModifierUIRef() const
-{
-    return LeftModifierUIRef;
-}
-

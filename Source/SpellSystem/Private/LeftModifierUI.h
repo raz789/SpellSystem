@@ -32,6 +32,12 @@ class ULeftModifierUI : public UUserWidget
 
 		UFUNCTION(BlueprintCallable, Category="UI Location")
 		FVector2D CalculateDirectionalVector(FVector2D initialPosition, float distance, float direction);
+
+		UFUNCTION(BlueprintPure, Category="UI Location")
+		float CalculateDistance(float floatTrackPosition, float distance);
+
+		UFUNCTION(BlueprintCallable, Category="UI Location")
+		float CalculateDirection(int numSpellNodes, float selectionDirection);
 		
 	private:
 		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")
@@ -42,5 +48,8 @@ class ULeftModifierUI : public UUserWidget
 
 		UPROPERTY(EditAnywhere, Category = "UI Location")
 		FVector2D UIDefaultPosition;
+
+		UPROPERTY(EditAnywhere, Category = "UI Location")
+		FVector2D SelectionDirection;
 	
 };

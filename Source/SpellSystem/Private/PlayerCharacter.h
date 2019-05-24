@@ -34,15 +34,20 @@ class APlayerCharacter : public APawn
 		UFUNCTION(BlueprintPure, Category="Player Data")
 		TArray<FSpellDataStruct> GetPlayerModifierArray() const;
 
+		UFUNCTION(BlueprintPure, Category="Player Data")
+		int GetCurrentModifierSelection() const;
+
+		UFUNCTION(BlueprintCallable, Category="Player Data")
+		void SetCurrentModifierSelection(int selected);
+
 	private:
 		TArray<FSpellDataStruct> ModifierArray;
 
 		UPROPERTY(EditDefaultsOnly, Category = "Player Data")
 		UDataTable* InputModifierTable;
 
-
-
-
+		UPROPERTY(EditDefaultsOnly, Category = "Player Data")
+		int CurrentModifierSelection;
 
 	
 	

@@ -5,7 +5,9 @@
 #include "PlayerStructs.h"
 #include "LeftModifierUI.h"
 #include "CoreMinimal.h"
+#include "Components/CanvasPanel.h"
 #include "Blueprint/UserWidget.h"
+#include "Blueprint/WidgetTree.h"
 #include "PlayerUI.generated.h"
 
 /**
@@ -17,22 +19,9 @@ class UPlayerUI : public UUserWidget
 	GENERATED_BODY()
 
 	public:
-		UFUNCTION(BlueprintCallable, Category="Character Data")
-		void SetModifierArray(TArray<FSpellDataStruct> Array);
+		UFUNCTION(BlueprintCallable, Category="Widget Tree")
+		void AddCanvasPanelToWidgetTree(UCanvasPanel* panel);
 
-		UFUNCTION(BlueprintPure, Category="Character Data")
-		TArray<FSpellDataStruct> GetModifierArray() const;
-
-		UFUNCTION(BlueprintCallable, Category="UI References")
-		void SetLeftModifierUIRef(ULeftModifierUI* UIRef);
-
-		UFUNCTION(BlueprintPure, Category="Character Data")
-		ULeftModifierUI* GetLeftModifierUIRef() const;
-	
 	private:
-		TArray<FSpellDataStruct> ModifierArray;
-		ULeftModifierUI* LeftModifierUIRef;
-
-		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")
-		TArray<USpellNode*> ModifierSpellNodes;
+		virtual void NativeConstruct() override;
 };

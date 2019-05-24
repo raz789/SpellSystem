@@ -9,7 +9,7 @@ void ULeftModifierUI::UpdateUI(TArray<FSpellDataStruct>& ModifierList)
     {
         if(SpellNodeClass)
         {
-            USpellNode* tempNode = CreateWidget<USpellNode>(this, SpellNodeClass);
+            USpellNode* tempNode = NewObject<USpellNode>(this, SpellNodeClass);
             tempNode->Setup(n.SpellName, n.IconRef, n.Level);
             ModifierSpellNodes.Add(tempNode);
         }
@@ -43,4 +43,14 @@ FVector2D ULeftModifierUI::CalculateDirectionalVector(FVector2D initialPosition,
     float y = (radius) * FMath::Sin(radians);
 
     return initialPosition + FVector2D(x, y);
+}
+
+float ULeftModifierUI::CalculateDistance(float floatTrackPosition, float distance)
+{
+    return floatTrackPosition * distance;
+}
+
+float ULeftModifierUI::CalculateDirection(int numSpellNodes, float selectionDirection)
+{
+    return 0;
 }
