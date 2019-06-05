@@ -18,10 +18,4 @@ class UPlayerUI : public UUserWidget
 {
 	GENERATED_BODY()
 
-	public:
-		UFUNCTION(BlueprintCallable, Category="Widget Tree")
-		void AddCanvasPanelToWidgetTree(UCanvasPanel* panel);
-
-	private:
-		virtual void NativeConstruct() override;
 };

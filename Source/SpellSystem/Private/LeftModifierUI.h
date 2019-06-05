@@ -7,6 +7,7 @@
 #include "PlayerStructs.h"
 #include "SpellNode.h"
 #include "UnrealMathUtility.h"
+#include "Kismet/KismetMathLibrary.h"
 #include "LeftModifierUI.generated.h"
 
 /**
@@ -33,15 +34,21 @@ class ULeftModifierUI : public UUserWidget
 		UFUNCTION(BlueprintCallable, Category="UI Location")
 		FVector2D CalculateDirectionalVector(FVector2D initialPosition, float distance, float direction);
 
-		UFUNCTION(BlueprintPure, Category="UI Location")
+		UFUNCTION(BlueprintPure, Category="UI Extension")
 		float CalculateDistance(float floatTrackPosition, float distance);
 
-		UFUNCTION(BlueprintCallable, Category="UI Location")
-		float CalculateDirection(int numSpellNodes, float selectionDirection);
+		UFUNCTION(BlueprintPure, Category="UI Extension")
+		float CalculateDirection(int modifierIndex, float selectionDirection);
+
+		UFUNCTION(BlueprintPure, Category="UI Extension")
+		float GetSelectionDirection() const;
 		
 	private:
 		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")
 		TArray<USpellNode*> ModifierSpellNodes;
+
+		UPROPERTY(EditAnywhere, Category = "Modifier Nodes")
+		int SelectedNodeIndex;
 
 		UPROPERTY(EditDefaultsOnly, Category = "Node Image")
 		TSubclassOf<UUserWidget> SpellNodeClass;
@@ -49,7 +56,9 @@ class ULeftModifierUI : public UUserWidget
 		UPROPERTY(EditAnywhere, Category = "UI Location")
 		FVector2D UIDefaultPosition;
 
-		UPROPERTY(EditAnywhere, Category = "UI Location")
-		FVector2D SelectionDirection;
+		UPROPERTY(EditDefaultsOnly, Category = "UI Extension")
+		float SelectionDirection;
+
+
 	
 };

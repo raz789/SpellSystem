@@ -50,7 +50,23 @@ float ULeftModifierUI::CalculateDistance(float floatTrackPosition, float distanc
     return floatTrackPosition * distance;
 }
 
-float ULeftModifierUI::CalculateDirection(int numSpellNodes, float selectionDirection)
+float ULeftModifierUI::CalculateDirection(int modifierIndex, float selectionDirection)
 {
-    return 0;
+    if(modifierIndex == SelectedNodeIndex)
+    {
+        return UKismetMathLibrary::GetPI()*selectionDirection;
+    }
+    if(modifierIndex == (((SelectedNodeIndex - 1) % 3) + 3) % 3)
+    {
+        return 0;
+    }
+
+
+
+    return 2*selectionDirection*UKismetMathLibrary::GetPI();
+}
+
+float ULeftModifierUI::GetSelectionDirection() const
+{
+    return SelectionDirection;
 }
